@@ -1,0 +1,444 @@
+{
+  "record_kind": "synthetic_presenter_demonstration",
+  "clock": "2026-10-06T00:00:00Z",
+  "scope": "Four separately named demonstrations. Not part of the original 16-case ledger benchmark or earlier 24-scenario snapshot study.",
+  "derivation": "Copies of relevant_time-family setups and existing actions; only decision rationale is clarified, with simulated successor review rationale clarified too.",
+  "conditional_journey": "For this proposed school-to-bus-stop journey, departure must precede the sighting; identity, travel feasibility, and source reliability remain open.",
+  "cases": [
+    {
+      "id": "presenter_journey",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Under the proposed school-to-bus-stop journey assumption, school departure must precede the sighting. Set this journey aside because the same-date bus report at 14:40 +08:00 precedes school departure at 15:10 +08:00. Identity, travel feasibility, and source reliability remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        },
+        {
+          "op": "human_review",
+          "event": "human_reviewed",
+          "decision_id": "decision_d1",
+          "review_id": "review_one",
+          "new_decision_id": "decision_d2",
+          "disposition": "defer",
+          "rationale": "Simulated reviewer: the corrected sighting removes the recorded ordering conflict in the proposed journey. Identity, travel feasibility, and correction reliability remain unverified; defer pending corroboration.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ],
+          "reviewer_id": "reviewer_demo"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_time_changed_again",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T16:00:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_changed_again"
+        }
+      ]
+    },
+    {
+      "id": "presenter_unrelated_source",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Under the proposed school-to-bus-stop journey assumption, school departure must precede the sighting. Set this journey aside because the same-date bus report at 14:40 +08:00 precedes school departure at 15:10 +08:00. Identity, travel feasibility, and source reliability remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_2",
+          "source_key": "source_weather",
+          "content": {
+            "note": "different fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "weather_changed"
+        }
+      ]
+    },
+    {
+      "id": "presenter_editorial_only",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Under the proposed school-to-bus-stop journey assumption, school departure must precede the sighting. Set this journey aside because the same-date bus report at 14:40 +08:00 precedes school departure at 15:10 +08:00. Identity, travel feasibility, and source reliability remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_editor_changed",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "copy edited without a reported observation change"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "editor_changed"
+        }
+      ]
+    },
+    {
+      "id": "presenter_missing_relationship",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Under the proposed school-to-bus-stop journey assumption, school departure must precede the sighting. Set this journey aside because the same-date bus report at 14:40 +08:00 precedes school departure at 15:10 +08:00. Identity, travel feasibility, and source reliability remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ],
+          "legacy_reason": "Synthetic legacy import with incomplete dependency registration."
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    }
+  ]
+}

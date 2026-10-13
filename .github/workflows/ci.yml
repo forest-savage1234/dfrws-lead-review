@@ -1,0 +1,30 @@
+name: Synthetic prototype checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Original Python engine and HTTP checks
+        run: python -m unittest discover -s tests -v
+      - name: Existing frontend DOM harness
+        run: node tests/test_frontend.mjs
+      - name: Replay the separate presenter example
+        run: |
+          python scripts/replay_presenter.py --out "$RUNNER_TEMP/presenter-trace.json"
+          cmp "$RUNNER_TEMP/presenter-trace.json" presenter/PRESENTER_Trace.json
+          python scripts/build_recorded_viewer.py --trace "$RUNNER_TEMP/presenter-trace.json" --out "$RUNNER_TEMP/presenter-viewer.html"
+          cmp "$RUNNER_TEMP/presenter-viewer.html" PRESENTER_Recorded_Viewer.html

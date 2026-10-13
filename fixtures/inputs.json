@@ -1,0 +1,1703 @@
+{
+  "recorded_at": "2026-10-06T00:00:00Z",
+  "scope": "Entirely fictional, builder-authored structured records. Inputs contain no expected outcomes.",
+  "cases": [
+    {
+      "id": "relevant_time",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    },
+    {
+      "id": "editor_only",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_editor_changed",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "copy edited without a reported observation change"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "editor_changed"
+        }
+      ]
+    },
+    {
+      "id": "unrelated_source",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_2",
+          "source_key": "source_weather",
+          "content": {
+            "note": "different fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "weather_changed"
+        }
+      ]
+    },
+    {
+      "id": "same_instant",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_timezone_rendered",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T06:40:00Z",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "timezone_rendered"
+        }
+      ]
+    },
+    {
+      "id": "indirect_dependency",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "hypothesis",
+          "node_id": "hyp_possible",
+          "refs": [
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "person_description"
+              ]
+            }
+          ],
+          "rationale": "Possible resemblance only; identity unestablished."
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "node_id": "hyp_possible",
+              "fields": [
+                "*"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_description_changed",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "resemblance description revised; still unverified",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "description_changed"
+        }
+      ]
+    },
+    {
+      "id": "unscoped_field",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_place_changed",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "other_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "place_changed"
+        }
+      ]
+    },
+    {
+      "id": "selective_leads",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d2",
+          "lead_id": "lead_second",
+          "disposition": "defer",
+          "rationale": "Separate recorded review basis for a second fictional lead.",
+          "refs": [
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "place"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    },
+    {
+      "id": "shared_input",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d2",
+          "lead_id": "lead_second",
+          "disposition": "defer",
+          "rationale": "Separate recorded review basis for a second fictional lead.",
+          "refs": [
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    },
+    {
+      "id": "missing_edges",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ],
+          "legacy_reason": "Synthetic legacy import with incomplete dependency registration."
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    },
+    {
+      "id": "undeclared_inputs",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [],
+          "legacy_reason": "Synthetic legacy import with incomplete dependency registration."
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        }
+      ]
+    },
+    {
+      "id": "ambiguous_time",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_timezone_missing",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "timezone_missing"
+        }
+      ]
+    },
+    {
+      "id": "removed_field",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_removed",
+          "source_key": "source_bus",
+          "content": {
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_removed"
+        }
+      ]
+    },
+    {
+      "id": "replay",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "same_capture_replayed"
+        }
+      ]
+    },
+    {
+      "id": "reversion",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_reversion",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "initial_content_restored"
+        }
+      ]
+    },
+    {
+      "id": "review_successor",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_time_corrected",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T15:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_corrected"
+        },
+        {
+          "op": "human_review",
+          "event": "human_reviewed",
+          "decision_id": "decision_d1",
+          "review_id": "review_one",
+          "new_decision_id": "decision_d2",
+          "disposition": "defer",
+          "rationale": "A human records that timing no longer supports the original exclusion. Identity remains unverified; defer pending corroboration.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ],
+          "reviewer_id": "reviewer_demo"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_time_changed_again",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T16:00:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "time_changed_again"
+        }
+      ]
+    },
+    {
+      "id": "identical_capture",
+      "setup": [
+        {
+          "op": "document",
+          "source_key": "source_school",
+          "observation_key": "obs_school",
+          "mapping": {
+            "event_time": "event_time"
+          },
+          "url": "https://fixture.invalid/source_school"
+        },
+        {
+          "op": "document",
+          "source_key": "source_bus",
+          "observation_key": "obs_bus",
+          "mapping": {
+            "event_time": "event_time",
+            "place": "place",
+            "person_description": "person_description"
+          },
+          "url": "https://fixture.invalid/source_bus"
+        },
+        {
+          "op": "document",
+          "source_key": "source_weather",
+          "observation_key": "obs_weather",
+          "mapping": {
+            "note": "note"
+          },
+          "url": "https://fixture.invalid/source_weather"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_school_1",
+          "source_key": "source_school",
+          "content": {
+            "event_time": "2026-10-01T15:10:00+08:00"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_1",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "capture",
+          "capture_id": "capture_weather_1",
+          "source_key": "source_weather",
+          "content": {
+            "note": "fixture weather"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z"
+        },
+        {
+          "op": "decision",
+          "node_id": "decision_d1",
+          "lead_id": "lead_bus",
+          "disposition": "set_aside",
+          "rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+          "refs": [
+            {
+              "observation_key": "obs_school",
+              "fields": [
+                "event_time"
+              ]
+            },
+            {
+              "observation_key": "obs_bus",
+              "fields": [
+                "event_time"
+              ]
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "op": "capture",
+          "capture_id": "capture_bus_identical",
+          "source_key": "source_bus",
+          "content": {
+            "event_time": "2026-10-01T14:40:00+08:00",
+            "place": "bus_stop",
+            "person_description": "possible match; identity unestablished",
+            "editor_note": "initial report"
+          },
+          "retrieved_at": "2026-10-06T00:00:00Z",
+          "event": "identical_bytes_captured"
+        }
+      ]
+    }
+  ]
+}

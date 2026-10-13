@@ -1,0 +1,780 @@
+{
+  "evaluation": "controlled_synthetic_reassessment_v1",
+  "fixture_count": 16,
+  "inputs_sha256": "693f91e2e9b5256e2ba4b89d85f800f6d377bfbc2b37a2980dab48fca1d8c757",
+  "expected_sha256": "8e98d56c3c18096ad4366cd037e59ae25a806d22887529264c5dfe1c3fb2e9c3",
+  "captured_runs_sha256": "83a99b9d9809fe5d74aa3ea32edde617d41f36a6aae29490913117a6f3a4529c",
+  "results": [
+    {
+      "comparator": "prototype",
+      "required": 14,
+      "emitted": 12,
+      "missed": 2,
+      "unnecessary": 0,
+      "complete_records_required": 10,
+      "complete_records_missed": 0,
+      "incomplete_records_required": 4,
+      "incomplete_records_missed": 2,
+      "contract_violations": [],
+      "events": [
+        {
+          "case_id": "relevant_time",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "editor_only",
+          "event": "editor_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unrelated_source",
+          "event": "weather_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "same_instant",
+          "event": "timezone_rendered",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "indirect_dependency",
+          "event": "description_changed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unscoped_field",
+          "event": "place_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "selective_leads",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "shared_input",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "emitted": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "missing_edges",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "undeclared_inputs",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "ambiguous_time",
+          "event": "timezone_missing",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "removed_field",
+          "event": "time_removed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "replay",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "replay",
+          "event": "same_capture_replayed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "initial_content_restored",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "human_reviewed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_changed_again",
+          "required": [
+            "decision_d2"
+          ],
+          "emitted": [
+            "decision_d2"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "identical_capture",
+          "event": "identical_bytes_captured",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ]
+    },
+    {
+      "comparator": "passive_provenance",
+      "required": 14,
+      "emitted": 0,
+      "missed": 14,
+      "unnecessary": 0,
+      "complete_records_required": 10,
+      "complete_records_missed": 10,
+      "incomplete_records_required": 4,
+      "incomplete_records_missed": 4,
+      "contract_violations": [],
+      "events": [
+        {
+          "case_id": "relevant_time",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "editor_only",
+          "event": "editor_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unrelated_source",
+          "event": "weather_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "same_instant",
+          "event": "timezone_rendered",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "indirect_dependency",
+          "event": "description_changed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unscoped_field",
+          "event": "place_changed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "selective_leads",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "shared_input",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "missing_edges",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "undeclared_inputs",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "ambiguous_time",
+          "event": "timezone_missing",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "removed_field",
+          "event": "time_removed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "replay",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "replay",
+          "event": "same_capture_replayed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "initial_content_restored",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d1"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "human_reviewed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_changed_again",
+          "required": [
+            "decision_d2"
+          ],
+          "emitted": [],
+          "missed": [
+            "decision_d2"
+          ],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "identical_capture",
+          "event": "identical_bytes_captured",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ]
+    },
+    {
+      "comparator": "hash_broadcast",
+      "required": 14,
+      "emitted": 19,
+      "missed": 0,
+      "unnecessary": 5,
+      "complete_records_required": 10,
+      "complete_records_missed": 0,
+      "incomplete_records_required": 4,
+      "incomplete_records_missed": 0,
+      "contract_violations": [],
+      "events": [
+        {
+          "case_id": "relevant_time",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "editor_only",
+          "event": "editor_changed",
+          "required": [],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unrelated_source",
+          "event": "weather_changed",
+          "required": [],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "same_instant",
+          "event": "timezone_rendered",
+          "required": [],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "indirect_dependency",
+          "event": "description_changed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "unscoped_field",
+          "event": "place_changed",
+          "required": [],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "selective_leads",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "missed": [],
+          "unnecessary": [
+            "decision_d2"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "shared_input",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "emitted": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "missing_edges",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "undeclared_inputs",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "ambiguous_time",
+          "event": "timezone_missing",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "removed_field",
+          "event": "time_removed",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "incomplete"
+        },
+        {
+          "case_id": "replay",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "replay",
+          "event": "same_capture_replayed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "reversion",
+          "event": "initial_content_restored",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_corrected",
+          "required": [
+            "decision_d1"
+          ],
+          "emitted": [
+            "decision_d1"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "human_reviewed",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "review_successor",
+          "event": "time_changed_again",
+          "required": [
+            "decision_d2"
+          ],
+          "emitted": [
+            "decision_d2"
+          ],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "case_id": "identical_capture",
+          "event": "identical_bytes_captured",
+          "required": [],
+          "emitted": [],
+          "missed": [],
+          "unnecessary": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ]
+    }
+  ],
+  "status": "pass",
+  "limitations": [
+    "Fixtures and expected outcomes are builder-authored; this is not independent practitioner validation.",
+    "Explicit structured fields and curated dependency references; arbitrary prose extraction is outside scope.",
+    "Incomplete dependency records can miss targeted requests. Coverage warnings do not repair absent links.",
+    "Baselines compare automated alert generation, not investigator performance or human review speed.",
+    "No field deployment, child recovery benefit, authenticated chain of custody, or CASE conformance established."
+  ]
+}

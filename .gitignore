@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.sqlite
+*.sqlite-*
+*.db
+demo_sessions/
+my-*/
+my-*
+replay_outputs/
+verification_runs/
+.DS_Store

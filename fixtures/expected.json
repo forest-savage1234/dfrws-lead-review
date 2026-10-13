@@ -1,0 +1,356 @@
+{
+  "oracle_scope": "Builder-authored explicit event judgments; required requests remain required even when edges are missing. Not practitioner validation.",
+  "cases": [
+    {
+      "case_id": "relevant_time",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "editor_only",
+      "events": [
+        {
+          "event": "editor_changed",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "unrelated_source",
+      "events": [
+        {
+          "event": "weather_changed",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "same_instant",
+      "events": [
+        {
+          "event": "timezone_rendered",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "indirect_dependency",
+      "events": [
+        {
+          "event": "description_changed",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "unscoped_field",
+      "events": [
+        {
+          "event": "place_changed",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "selective_leads",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "shared_input",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1",
+            "decision_d2"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 2,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "missing_edges",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "incomplete"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "undeclared_inputs",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "incomplete"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "ambiguous_time",
+      "events": [
+        {
+          "event": "timezone_missing",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "incomplete"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "removed_field",
+      "events": [
+        {
+          "event": "time_removed",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "incomplete"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "replay",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "same_capture_replayed",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 1,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "reversion",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "initial_content_restored",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 4,
+        "review_requests": 2,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "review_successor",
+      "events": [
+        {
+          "event": "time_corrected",
+          "required_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "human_reviewed",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "time_changed_again",
+          "required_decisions": [
+            "decision_d2"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 5,
+        "review_requests": 2,
+        "human_reviews": 1,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    },
+    {
+      "case_id": "identical_capture",
+      "events": [
+        {
+          "event": "identical_bytes_captured",
+          "required_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "final": {
+        "source_versions": 3,
+        "review_requests": 0,
+        "human_reviews": 0,
+        "original_decisions_preserved": true,
+        "integrity": "pass",
+        "original_versions_preserved": true,
+        "original_captures_preserved": true
+      }
+    }
+  ]
+}

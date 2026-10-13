@@ -1,0 +1,70 @@
+{
+  "verification": "supplemental_release_checks_v1",
+  "synthetic_only": true,
+  "fixed_clock": "2026-10-06T00:00:00+00:00",
+  "status": "pass",
+  "source_bytes_unchanged": true,
+  "source_stale_guard": false,
+  "expected_labels_loaded": false,
+  "checks": [
+    {
+      "check": "superseded_unreviewed_request_rejected_atomically",
+      "status": "pass",
+      "rejected": true,
+      "atomic": true,
+      "still_unreviewed": true,
+      "reason": "The requested decision has already been superseded; review its current successor.",
+      "history_retained": {
+        "original_decisions": true,
+        "source_versions": true,
+        "captures": true
+      }
+    },
+    {
+      "check": "older_request_with_newer_capture_known_limitation",
+      "status": "pass",
+      "known_limitation": true,
+      "source_stale_guard": false,
+      "older_request_accepted": true,
+      "old_refs_retained": true,
+      "original_bus_observation_id": "obs_a45ee73f80dca880d65a8e03e927f0de",
+      "original_bus_source_version_id": "docv_5804afb73aacba5b7bf499004ebfe450",
+      "latest_bus_source_version_id": "docv_2b7eeadeb359838185230d386c6f20f2",
+      "request_statuses": {
+        "req_bd7eef536c58a67cf871d513949a217d": "reviewed",
+        "req_05a95abafd5cd0c04fcdbc3a5c1a1652": "superseded_decision"
+      },
+      "history_retained": {
+        "original_decisions": true,
+        "source_versions": true,
+        "captures": true
+      },
+      "boundary": "The engine rejects reviewed/superseded-decision requests; it does not enforce source freshness."
+    },
+    {
+      "check": "same_capture_and_request_replay_idempotent",
+      "status": "pass",
+      "idempotent": true,
+      "request_ids": [
+        "req_bd7eef536c58a67cf871d513949a217d"
+      ],
+      "stored_requests": 1,
+      "captures_unchanged": true
+    },
+    {
+      "check": "repeated_ui_correction_reuses_version_without_duplicate_request",
+      "status": "pass",
+      "duplicate_requests": false,
+      "stored_requests": 1,
+      "new_capture_event_retained": true,
+      "content_version_reused": true,
+      "decision_unchanged": true,
+      "browser_or_network_used": false
+    }
+  ],
+  "limitations": [
+    "No browser rendering or practitioner validation is performed.",
+    "Older open requests can be reviewed after a newer source capture while their decision remains active.",
+    "Retained source hashes and demo actor labels do not establish source truth or authenticated custody."
+  ]
+}

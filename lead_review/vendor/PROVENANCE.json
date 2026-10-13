@@ -1,0 +1,20 @@
+{
+  "repository": "forest-savage1234/CaseLinker",
+  "commit": "4a17a9e5fdf74057de08a819291bf1606b8e3b45",
+  "upstreamProject": "mrinaalr/CaseLinker",
+  "files": [
+    {
+      "original": "src/caselinker/documents/models.py",
+      "local": "documents.py",
+      "changes": "none"
+    },
+    {
+      "original": "src/caselinker/assertions/models.py",
+      "local": "assertions.py",
+      "changes": "one import path changed to .documents"
+    }
+  ],
+  "use": "SourceDocument, SourceDocumentVersion, EvidenceReference. Existing assertion review outcomes are not relabeled as investigative decisions.",
+  "credit": "Mrinaal Ramachandran, Forest Savage, and CaseLinker contributors",
+  "integration": "Standalone prototype; not an upstream CaseLinker release."
+}

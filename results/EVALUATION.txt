@@ -1,0 +1,22 @@
+SINGAPORE LEAD REVIEW: CONTROLLED SYNTHETIC EVALUATION
+
+Fixtures: 16; contract: pass
+
+Comparator                 Required  Emitted  Missed  Unnecessary
+prototype                         14       12       2            0
+passive_provenance                14        0      14            0
+hash_broadcast                    14       19       0            5
+
+Complete recorded dependencies: 0 misses / 10 required requests.
+Incomplete records: 2 misses / 4 required requests.
+
+Fixtures and expected outcomes are builder-authored; this is not independent practitioner validation.
+Explicit structured fields and curated dependency references; arbitrary prose extraction is outside scope.
+Incomplete dependency records can miss targeted requests. Coverage warnings do not repair absent links.
+Baselines compare automated alert generation, not investigator performance or human review speed.
+No field deployment, child recovery benefit, authenticated chain of custody, or CASE conformance established.
+
+Hashes:
+inputs: 693f91e2e9b5256e2ba4b89d85f800f6d377bfbc2b37a2980dab48fca1d8c757
+expected: 8e98d56c3c18096ad4366cd037e59ae25a806d22887529264c5dfe1c3fb2e9c3
+captured outputs: 83a99b9d9809fe5d74aa3ea32edde617d41f36a6aae29490913117a6f3a4529c

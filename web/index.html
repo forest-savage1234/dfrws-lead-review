@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reassessing a recorded lead</title>
+<style>
+:root{color-scheme:light;--ink:#172d3d;--muted:#4f6674;--line:#cad5d8;--accent:#12665b;--paper:#f6f8f6;--warn:#764200}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font:17px/1.5 system-ui,sans-serif;color:var(--ink)}
+main{max-width:1100px;margin:0 auto;padding:40px 28px 64px}.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+h1{font-size:42px;line-height:1.12;margin:12px 0 18px;font-weight:650;letter-spacing:-.03em}h2{font-size:24px;margin:32px 0 10px}
+p{max-width:860px;margin:10px 0}.sub{color:var(--muted)}.boundary{border-left:4px solid var(--accent);padding:12px 18px;background:white}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}button,.download{font:inherit;font-size:15px;padding:10px 15px;border-radius:3px;border:1px solid var(--accent);background:white;color:var(--accent);cursor:pointer;text-decoration:none}
+button.primary{background:var(--accent);color:white}button:disabled{opacity:.5;cursor:wait}button:focus-visible,a:focus-visible{outline:3px solid #b89522;outline-offset:3px}
+.coverage{padding:14px 18px;background:#e5f1ec;border:1px solid #9abdac}.coverage.warning{background:#fff0dc;border-color:#c78f47;color:var(--warn)}
+.coverage p{margin:5px 0}.small{font-size:13px;color:var(--muted)}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;background:white;font-size:15px}
+th{text-align:left;background:#eaf0ed;font-weight:650}th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+code{font-size:12px;overflow-wrap:anywhere}details{padding:10px 0}summary{cursor:pointer;color:var(--accent)}pre{white-space:pre-wrap;word-break:break-word;font-size:12px;background:#eaf0ed;padding:14px}
+.request{background:white;border-top:3px solid var(--accent);padding:16px 20px;margin:12px 0}.request h3{margin:0 0 8px;font-size:20px}.notice{color:var(--warn);font-weight:600}
+footer{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;font-size:13px;color:var(--muted)}#error{color:#a12d19;min-height:24px}
+@media(max-width:650px){main{padding:24px 16px}h1{font-size:32px}th,td{padding:8px}table{min-width:600px}}
+</style>
+<main>
+<div class="eyebrow">Forest Savage · Singapore prototype 0.1.0</div>
+<h1>Reassessing a recorded lead</h1>
+<p class="sub">A corrected source can change the basis of an earlier decision. Follow the recorded dependency, retain the decision, and request human review.</p>
+<p class="boundary"><strong>Entirely fictional demonstration.</strong> Structured reports and declared dependencies only. The software does not establish identity, decide whether a lead is valid, or demonstrate a recovery outcome.</p>
+<div class="actions">
+<button class="primary" data-op="correct">1. Correct reported time</button>
+<button data-op="review">2. Record demo human review</button>
+<button data-op="metadata">Try an unrelated metadata edit</button>
+<button data-op="missing_links">Start missing-links example</button>
+<button data-op="reset">Start fresh example</button>
+<a class="download" href="/export" download>Export this trace</a>
+</div>
+<p id="error" role="alert"></p>
+<div id="coverage" class="coverage" aria-live="polite"></div>
+<h2>Captured reports</h2>
+<p class="small">Reports use Singapore time (+08:00). Capture events and content versions are distinct records; identical or restored bytes reuse a content version.</p>
+<div class="scroll"><table><thead><tr><th>Source</th><th>Latest reported observation</th><th>Retained content versions</th></tr></thead><tbody id="sources"></tbody></table></div>
+<h2>Decisions retained in the ledger</h2>
+<div class="scroll"><table><thead><tr><th>Decision</th><th>Disposition</th><th>Recorded rationale</th><th>History</th></tr></thead><tbody id="decisions"></tbody></table></div>
+<h2>Explained reassessment requests</h2>
+<div id="requests" aria-live="polite"></div>
+<details><summary>Inspect declared dependencies and integrity findings</summary><pre id="detail"></pre></details>
+<footer>Source-version and evidence-reference models: CaseLinker, Mrinaal Ramachandran and contributors (MIT). Standalone reassessment engine and demonstration: Forest Savage. This prototype has synthetic checks, not independent practitioner or operational validation.</footer>
+</main>
+<script>
+const token="__DEMO_TOKEN__";
+const $=id=>document.getElementById(id);
+function append(parent,tag,value,cls){const el=document.createElement(tag);el.textContent=value;if(cls)el.className=cls;parent.append(el);return el}
+function localTime(value){if(!value)return "Unknown or ambiguous";return new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Singapore",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date(value))+" (+08:00)"}
+function render(s){
+ const complete=s.coverage.status==="complete_within_declared_records";
+ $("coverage").className="coverage"+(complete?"":" warning");$("coverage").replaceChildren();
+ append($("coverage"),"strong",complete?"Dependency coverage: complete within the declared records":"Dependency coverage: incomplete");
+ append($("coverage"),"p",complete?"The recorded input references agree with the registered edges. Entirely unrecorded dependencies remain outside this check.":"A missing or unresolved input can prevent a targeted request. No request does not establish that no decision is affected.");
+ if(!complete)append($("coverage"),"p",s.coverage.issues.map(x=>x.reason).filter((x,i,a)=>a.indexOf(x)===i).join("; "),"small");
+ append($("coverage"),"p",s.captures.length+" capture events · "+s.source_versions.length+" content versions · "+s.human_reviews.length+" recorded demo human reviews","small");
+ const versions=new Map(s.source_versions.map(v=>[v.id,v]));$("sources").replaceChildren();
+ const latest=new Map();for(const c of s.captures)latest.set(c.document_id,c);
+ for(const [doc,c] of latest){const v=versions.get(c.version_id),o=s.nodes.find(n=>n.kind==="observation"&&n.source_version_id===v.id);
+  const tr=append($("sources"),"tr","");append(tr,"td",o.source_key);
+  append(tr,"td",o.values.event_time!==undefined?localTime(o.values.event_time):JSON.stringify(o.values));
+  const td=append(tr,"td",String(s.source_versions.filter(x=>x.document_id===doc).length));const d=append(td,"details","");append(d,"summary","Source bytes and version ID");append(d,"code",v.id);append(d,"pre",v.content);
+ }
+ $("decisions").replaceChildren();const active=new Set(s.active_decisions.map(d=>d.id));
+ for(const d of s.nodes.filter(n=>n.kind==="decision")){const tr=append($("decisions"),"tr","");append(tr,"td",d.id);append(tr,"td",d.disposition.replaceAll("_"," "));append(tr,"td",d.rationale);append(tr,"td",active.has(d.id)?"Current; earlier decisions retained":"Retained; superseded by later human decision")}
+ $("requests").replaceChildren();
+ if(!s.review_requests.length)append($("requests"),"p",complete?"No reassessment request has been recorded for this example. Apply the reported-time correction.":"No targeted request has been recorded. The incomplete dependencies limit what this result can mean.","notice");
+ for(const r of s.review_requests){const box=append($("requests"),"article","","request");
+  append(box,"h3",r.decision_id+" · "+r.status.replaceAll("_"," "));append(box,"p",r.reason);
+  append(box,"p","Earlier reported time: "+localTime(r.old_values.event_time)+" → revised reported time: "+localTime(r.new_values.event_time));
+  append(box,"p","Recorded dependency path: "+r.dependency_path.join(" → "),"small");
+  append(box,"p",r.conclusion,"small");
+  const d=append(box,"details","");append(d,"summary","Original rationale and exact source references");
+  append(d,"p",r.original_rationale);append(d,"pre",JSON.stringify({previous_capture:r.previous_capture_id,old_version:r.old_source_version_id,new_version:r.new_source_version_id,decision_basis_version:r.decision_basis_version_id,changed_fields:r.changed_fields},null,2));
+ }
+ $("detail").textContent=JSON.stringify({dependencies:s.dependencies,coverage:s.coverage,integrity:s.integrity,human_reviews:s.human_reviews},null,2);
+}
+async function action(op){$("error").textContent="";document.querySelectorAll("button").forEach(b=>b.disabled=true);
+ try{const response=await fetch("/action",{method:"POST",headers:{"Content-Type":"application/json","X-Demo-Token":token},body:JSON.stringify({op})});const value=await response.json();if(!response.ok)throw Error(value.error);render(value);}
+ catch(e){$("error").textContent=e.message}
+ finally{document.querySelectorAll("button").forEach(b=>b.disabled=false)}
+}
+document.querySelectorAll("[data-op]").forEach(b=>b.addEventListener("click",()=>action(b.dataset.op)));
+fetch("/state").then(r=>r.json()).then(render).catch(e=>$("error").textContent=e.message);
+</script>
+</html>
