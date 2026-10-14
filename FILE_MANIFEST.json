@@ -1,5 +1,6 @@
 {
-  "scope": "Selected synthetic public source; excludes this manifest itself and Git metadata.",
+  "scope": "Selected synthetic latest-request correction, approved for publication. Excludes manifest itself and Git/generated metadata. Local_Candidate receipts are historical pre-publication checks.",
+  "baseline_commit": "9987240f934ce00d55f5db8ae04cca4b2b769552",
   "files": [
     {
       "path": ".gitattributes",
@@ -17,9 +18,14 @@
       "sha256": "2b2ef7b5a58e4832411e1a9cc533c0280bb5b4512ecc5a495612cb3ea56b24a2"
     },
     {
+      "path": "CANDIDATE_REVIEW.md",
+      "bytes": 4310,
+      "sha256": "14be85918378021b1ae19682896d2b191f509a727b162858c5e0a28d8cb9b1a5"
+    },
+    {
       "path": "CHANGELOG.md",
-      "bytes": 555,
-      "sha256": "8b2b903035373543a00dd9960c8824441a0114468e1dd2eb0d18d5efd9d2f9a5"
+      "bytes": 1619,
+      "sha256": "6ea079cfd14c7817b0ec22ac774f389fda8215789b016367aad32f785c8aa88e"
     },
     {
       "path": "fixtures/expected.json",
@@ -43,8 +49,8 @@
     },
     {
       "path": "lead_review/engine.py",
-      "bytes": 27206,
-      "sha256": "1d4dc6cb4bad259bf9822f2f7fdb034e8fe2452ba6a46285bb8843d4dd31bda3"
+      "bytes": 27886,
+      "sha256": "e1934174ca69dd759e0d8b57da6bfb8253959521bc4426c144a5e745b4ea9ae1"
     },
     {
       "path": "lead_review/evaluate.py",
@@ -118,8 +124,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7927,
-      "sha256": "c7e2a47dca804c556ea83ff702ae6f216a1f609cf0fbad2ae5033bb15d982be5"
+      "bytes": 9647,
+      "sha256": "5f27729497f198220a79b0c69666c2d2661d67a58c739d05e660c128915875d5"
     },
     {
       "path": "results/captured_runs.json",
@@ -167,6 +173,11 @@
       "sha256": "db1e770b5a73e01b13134a7173dc0958a1f21819ae4499d77cbc368e20b4010c"
     },
     {
+      "path": "tests/test_request_supersession.py",
+      "bytes": 7341,
+      "sha256": "5bbc678843d4bb2c05a914e167e0514b7bcde0a58e539f63262561861a4f15ab"
+    },
+    {
       "path": "tests/test_ui.py",
       "bytes": 2603,
       "sha256": "8426406364d7f6e7f74e2ac52af9fe84529de7aa4cb8022eb37fc94e03f05517"
@@ -187,6 +198,56 @@
       "sha256": "fb7ec64402e2fe2a4cb14f0bfbcaf51f7aeb44a8cd9b4be30fbd2100d8700926"
     },
     {
+      "path": "verification/Local_Candidate/candidate-focused-tests.txt",
+      "bytes": 2283,
+      "sha256": "7ef713fe07676fe326ffd6e7b4ddcc6732de5eb587a18839e5533a0808d83037"
+    },
+    {
+      "path": "verification/Local_Candidate/candidate-presenter-replay.txt",
+      "bytes": 1863,
+      "sha256": "33c6e38df15e9bb422c4990a2a3b0dda31a4bdcdcf22b1875ea35018ee16485e"
+    },
+    {
+      "path": "verification/Local_Candidate/candidate-probes.json",
+      "bytes": 3837,
+      "sha256": "34456b6f392d1c0df8995ab8c59cf9ea97c420495a954b3f5fc4b2403b7a58f3"
+    },
+    {
+      "path": "verification/Local_Candidate/candidate-queue-render.json",
+      "bytes": 256,
+      "sha256": "63f9ca540a986411a56072b7dab562971b82baf47036f69bfed500d35033c53e"
+    },
+    {
+      "path": "verification/Local_Candidate/candidate-verification.json",
+      "bytes": 3740,
+      "sha256": "46568da852ba69120f992cbca58bc14fea548219cb552c9a0853a5108cb4496f"
+    },
+    {
+      "path": "verification/Local_Candidate/evaluation/captured_runs.json",
+      "bytes": 402910,
+      "sha256": "fba57c62019fc538a16dfc2884810f0a6840e50228bcd717c5338477785e43f0"
+    },
+    {
+      "path": "verification/Local_Candidate/evaluation/evaluation.json",
+      "bytes": 21487,
+      "sha256": "68f178351944a1948b61425c1fa130f7e74405d3f0a2503b3612b6c2bc1b34ad"
+    },
+    {
+      "path": "verification/Local_Candidate/evaluation/EVALUATION.txt",
+      "bytes": 1255,
+      "sha256": "a6f1630da705f8c6391bad0fac6e05926cfb2d21cb4ff73ff807b20be02e66ac"
+    },
+    {
+      "path": "verification/Local_Candidate/race-cleanup-rerun.json",
+      "bytes": 461,
+      "sha256": "b1d65847b042a4e1ebac686fd4c0d67e220827f0c42e1babad0ff61493053e69"
+    },
+    {
+      "path": "verification/Local_Candidate/root-candidate-test-receipt.json",
+      "bytes": 885,
+      "sha256": "37b33756d81d729d28d1e84f9dc3e21e23ca55cbca9ce3f584b900d276ed2abe"
+    },
+    {
       "path": "verification/Runtime_Source_Correlation.json",
       "bytes": 2882,
       "sha256": "b4b77320fefeab22474e7370f00f36c15cb90e8d5a96527b810c624417fea208"
@@ -198,8 +259,8 @@
     },
     {
       "path": "Verification_Report.md",
-      "bytes": 4937,
-      "sha256": "62a7720efb40092b96ea7ba1b91885a8539f3bb23025058efa2c093e37c9befb"
+      "bytes": 5970,
+      "sha256": "46c9da70fa4c29623561457455e463d4c6d41def432418148fb8a1713729b434"
     },
     {
       "path": "web/index.html",

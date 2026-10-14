@@ -1,0 +1,138 @@
+{
+  "kind": "local_proposed_latest_request_gate",
+  "baseline_commit": "9987240f934ce00d55f5db8ae04cca4b2b769552",
+  "published": false,
+  "focused_tests": {
+    "run": 13,
+    "errors": 0,
+    "failures": 0,
+    "pass": true,
+    "log": "candidate-focused-tests.txt"
+  },
+  "original_corpus": {
+    "fixture_count": 16,
+    "status": "pass",
+    "prototype": {
+      "required": 14,
+      "emitted": 12,
+      "missed": 2,
+      "unnecessary": 0,
+      "complete_records_missed": 0,
+      "incomplete_records_missed": 2
+    }
+  },
+  "replay_exit": 0,
+  "viewer_build_exit": 0,
+  "byte_comparisons": {
+    "evaluation/evaluation.json": {
+      "fresh": {
+        "bytes": 21487,
+        "sha256": "68f178351944a1948b61425c1fa130f7e74405d3f0a2503b3612b6c2bc1b34ad"
+      },
+      "published": {
+        "bytes": 21487,
+        "sha256": "7ab3baeb9a6430bf717d10d57a6fc15079cd2b619c3ab9c59daab07cb59e597f"
+      },
+      "identical": false
+    },
+    "evaluation/captured_runs.json": {
+      "fresh": {
+        "bytes": 402910,
+        "sha256": "fba57c62019fc538a16dfc2884810f0a6840e50228bcd717c5338477785e43f0"
+      },
+      "published": {
+        "bytes": 402913,
+        "sha256": "c10e13f470bb54dfca8fb4f5255219087f13028f220e7d746f7ddce8c2b4cc1a"
+      },
+      "identical": false
+    },
+    "evaluation/EVALUATION.txt": {
+      "fresh": {
+        "bytes": 1255,
+        "sha256": "a6f1630da705f8c6391bad0fac6e05926cfb2d21cb4ff73ff807b20be02e66ac"
+      },
+      "published": {
+        "bytes": 1255,
+        "sha256": "fb7ec64402e2fe2a4cb14f0bfbcaf51f7aeb44a8cd9b4be30fbd2100d8700926"
+      },
+      "identical": false
+    },
+    "presenter/PRESENTER_Trace.json": {
+      "fresh": {
+        "bytes": 103083,
+        "sha256": "50022e345a7243697c7000cc14f611be706d409a18c2706933974a26caf689e2"
+      },
+      "published": {
+        "bytes": 103083,
+        "sha256": "50022e345a7243697c7000cc14f611be706d409a18c2706933974a26caf689e2"
+      },
+      "identical": true
+    },
+    "PRESENTER_Recorded_Viewer.html": {
+      "fresh": {
+        "bytes": 116963,
+        "sha256": "0b2afb9dba277acfc11e30e549bd2d1820cf06ac1e8add348a6fdfa5088a2f81"
+      },
+      "published": {
+        "bytes": 116963,
+        "sha256": "0b2afb9dba277acfc11e30e549bd2d1820cf06ac1e8add348a6fdfa5088a2f81"
+      },
+      "identical": true
+    }
+  },
+  "original_evaluation_expected_derived_status_change": [
+    {
+      "case_id": "reversion",
+      "request_id": "req_bd7eef536c58a67cf871d513949a217d",
+      "old_status": "awaiting_human_review",
+      "new_status": "superseded_request"
+    }
+  ],
+  "no_other_captured_state_changes": true,
+  "evaluation_metrics_unchanged_except_captured_output_hash": true,
+  "viewer_embedded_trace_equals_fresh_trace": true,
+  "seven_stage_mapping": [
+    {
+      "stage": 1,
+      "source": "main.before",
+      "D1": "set_aside"
+    },
+    {
+      "stage": 2,
+      "source": "main.events[0]",
+      "selected": [
+        "decision_d1"
+      ]
+    },
+    {
+      "stage": 3,
+      "source": "main.events[1] + retained after nodes",
+      "D2": "defer"
+    },
+    {
+      "stage": 4,
+      "source": "main.events[2]",
+      "selected": [
+        "decision_d2"
+      ]
+    },
+    {
+      "stage": 5,
+      "source": "runs[1].events[0]",
+      "requests": 0,
+      "coverage": "complete_within_declared_records"
+    },
+    {
+      "stage": 6,
+      "source": "runs[2].events[0]",
+      "requests": 0,
+      "coverage": "complete_within_declared_records"
+    },
+    {
+      "stage": 7,
+      "source": "runs[3].events[0]",
+      "requests": 0,
+      "coverage": "incomplete"
+    }
+  ]
+}

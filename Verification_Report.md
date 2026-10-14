@@ -1,40 +1,39 @@
-# Verification of the selected synthetic source
+# Verification of the latest-request correction
 
-Prepared 13 October 2026. This repository selection contains code, fictional fixture/trace records, retained results, licenses/provenance, and reproduction instructions. Personal correspondence, conference authoring files, local path inventories and executed databases are excluded.
+Prepared 13 October 2026. This correction derives from public commit `9987240f934ce00d55f5db8ae04cca4b2b769552`. Forest approved publication on 13 October 2026. The original archive remains unchanged. Local_Candidate receipts preserve the pre-publication verification scope. Personal correspondence, conference authoring files, local path inventories and executed databases are excluded from the selected source package.
 
-## Preserved code and benchmark
+## Runtime change and preserved records
 
-The engine, models, runner, evaluator, optional UI, web page, original tests and 16-case benchmark inputs/expected labels are unchanged from the retained Bridge implementation. Engine SHA-256: `1d4dc6cb4bad259bf9822f2f7fdb034e8fe2452ba6a46285bb8843d4dd31bda3`.
+`lead_review/engine.py` now rejects an older pending request when a later capture produced another request for the same active decision. The check occurs within the review's SQLite writer transaction. `state()` derives the visible `superseded_request` status without rewriting history. Later irrelevant or equivalent captures with no new request do not block review. Capture sequence, rather than user-provided timestamps, selects the latest request. This is not general source-freshness certification.
 
-The original inputs and labels have SHA-256:
+Seven regression methods are added in `tests/test_request_supersession.py`. Existing models, runner, evaluator, UI/web code, original tests, licenses, and benchmark inputs/expected labels remain unchanged. The file manifest records exact selected source identities.
 
-- Inputs: `693f91e2e9b5256e2ba4b89d85f800f6d377bfbc2b37a2980dab48fca1d8c757`.
-- Expected labels: `8e98d56c3c18096ad4366cd037e59ae25a806d22887529264c5dfe1c3fb2e9c3`.
+- Original inputs SHA-256: `693f91e2e9b5256e2ba4b89d85f800f6d377bfbc2b37a2980dab48fca1d8c757`.
+- Original expected labels SHA-256: `8e98d56c3c18096ad4366cd037e59ae25a806d22887529264c5dfe1c3fb2e9c3`.
+- Presenter fixture SHA-256: `090d9b1b21503ef6dc778280d6a7dd500e3a10080b861111d735e65b74e0c69d`.
+- Fresh presenter trace SHA-256: `50022e345a7243697c7000cc14f611be706d409a18c2706933974a26caf689e2`.
+- Fresh recorded viewer SHA-256: `0b2afb9dba277acfc11e30e549bd2d1820cf06ac1e8add348a6fdfa5088a2f81`.
 
-The evaluator's canonical captured-output digest is `83a99b9d9809fe5d74aa3ea32edde617d41f36a6aae29490913117a6f3a4529c`, excluding the output file's trailing newline. File digests are separately recorded by `FILE_MANIFEST.json`.
-
-The new presenter fixture copies existing setup/actions and clarifies the conditional school-to-stop D1 reason and simulated D2 rationale. Its SHA-256 is `090d9b1b21503ef6dc778280d6a7dd500e3a10080b861111d735e65b74e0c69d`; trace file SHA-256 is `50022e345a7243697c7000cc14f611be706d409a18c2706933974a26caf689e2`. It is separate from the original 16-case benchmark and earlier 24-scenario snapshot study.
-
-## Completed verification evidence
+## Actual verification
 
 | Check | Observed evidence |
 |---|---|
-| Original Python methods | A later combined verification passed all 14 methods, including both HTTP methods. `verification/Runtime_Source_Correlation.json` confirms all 18 shared runtime/model/test/web/fixture files match that tested source byte-for-byte. An earlier restricted run passed 12 and blocked two HTTP connections; that block was resolved in the later permitted verification. |
-| Existing frontend harness | Actual page-script correction display, review history, missing-link warning and literal text handling passed in a DOM stand-in. |
-| Original evaluation | Contract pass: 16 cases, 20 events, 14 required; 12 generated, 2 missed, 0 unnecessary. Passive policy misses 14; broadcast emits 19, including 5 unnecessary. |
-| Presenter replay | D1 correction produces a request; simulated D2 is appended while D1 remains; later correction targets D2. Unrelated/editorial controls emit zero; missing relationship emits zero with incomplete coverage. All four internal integrity checks pass. |
-| Clean extraction/reproduction | The retained source selection reproduced original evaluation output, presenter trace and recorded-viewer bytes. The original CLI demo export matched its retained object. |
-| Recorded viewer | Embedded trace identity, complete root/vendor MIT licenses/provenance and all seven stages passed content checks in a limited DOM stand-in. No remote resources or network calls in shipped recorded HTML. |
-| Supplemental release behavior | Reviewed or superseded-decision requests are rejected; identical replay does not duplicate requests. An older open request is accepted after a newer capture if its decision remains active: no source-freshness guard. See `verification/Supplemental_Release_Checks.json`. |
+| Local focused checks | 13 methods pass: seven new regressions and six relevant original methods. These cover latest-request rejection/acceptance, irrelevant/equivalent captures, cross-source requests, other decisions, ledger-order semantics, two-connection capture/review contention, retained evidence, replay/collision, rollback, deterministic export and source-byte tamper detection. |
+| Local combined candidate checks | All 21 methods pass, including both actual loopback HTTP workflow methods. The existing Node page-script harness passes. The single race regression passes again after switching to automatic temporary-database cleanup. The combined receipt records commands, count, exit codes and observed console tail rather than a saved full per-method log. |
+| Queue display | The unchanged actual page script renders an actual candidate state with two requests: older `superseded request`, newer `awaiting human review`, latest bus time 16:00. This is a DOM stand-in check, not graphical browser validation. |
+| Original evaluation | Fresh contract pass: 16 cases, 20 events, 14 required; 12 generated, two missed, zero unnecessary. Passive policy misses 14; broadcast emits 19, including five unnecessary. Fixtures and expected labels remain unchanged. |
+| Captured evaluation difference | Only the existing `reversion` case's older request status changes from `awaiting_human_review` to `superseded_request`. All other captured state and all evaluation metrics match published records. The canonical output digest is `f89c6ffbfcec5e49ad91a5723956409cb84f9a620e0a01f0eb6e06124f1142c7`; the file digest including its trailing newline is `fba57c62019fc538a16dfc2884810f0a6840e50228bcd717c5338477785e43f0`. |
+| Presenter replay/viewer | Fresh trace and rebuilt offline viewer are byte-identical to published artifacts. Embedded trace identity matches. D1 review, explicit D2 defer, later D2 request, unrelated/editorial zero-request controls and missing-link miss with incomplete coverage remain represented. |
+| Integrity scope experiment | Altering D1 rationale in a temporary database after disabling the update trigger still produces `pass`. This occurs in the published source and proposed candidate. The check validates foreign keys, source digests/version identifiers, anchors and observation extraction, not independent decision/request/review history authentication. |
 
-The 14-method evidence applies to byte-matched code; it does not claim that every packaging variant had an identical combined test execution. This publication checkout changes documentation/selection and adds CI, not runtime code, benchmark or presenter trace. The committed workflow provides a fresh run against the published checkout.
+Current candidate receipts are under `verification/Local_Candidate/`. Earlier `verification/Runtime_Source_Correlation.json`, `verification/Supplemental_Release_Checks.json`, `results/` and `verification/fresh_evaluation/` are preserved historical evidence for the earlier source. They do not certify changed candidate runtime bytes.
 
-## Content and interpretation limits
+## Interpretation and remaining work
 
-Fixed synthetic reports use `fixture.invalid` labels. The optional interface fetches only its local loopback endpoints; the recorded viewer loads none. Source content, actor labels and decisions are fictional. The repository contains no personal email/chat/session exports, local-user paths, credentials or private case records identified in the bounded content review. This is not a comprehensive vulnerability or sensitivity certification.
+All supplied reports and actor labels are fictional. Expected judgments are builder-authored with AI assistance. No independent practitioner evaluation, source truth, authenticated actor/custody, general algorithm novelty, operational deployment, recovery outcome, comparative superiority or validated CASE/UCO interchange is established.
 
-Expected judgments are builder-authored with AI assistance. No independent investigative judgment, source truth, actor authentication, authenticated custody, general algorithm novelty, operational deployment, recovery outcome, comparative superiority or validated CASE/UCO interchange is established.
+SQLite append-only triggers prevent normal API updates/deletes; a person controlling the database can bypass them. The export SHA identifies exported bytes, with no externally anchored authenticity guarantee. Entirely unrecorded relationships can remain invisible. Coverage warnings do not restore absent links. A latest-request gate cannot certify current references or source reliability.
 
-Graphical browser rendering, actual venue behavior and aloud delivery remain separate checks. A coverage warning describes a recorded gap; it cannot prove comprehensive dependencies or restore an absent link. A person reviewing an older open request must inspect source freshness because the engine does not enforce it.
+The recorded viewer displays executed output and loads no remote resources. It does not run the engine. The original optional interface operates the original fixture, rather than the separately clarified presenter rationale. Forest still needs an aloud rehearsal and actual laptop/browser/venue check before committing to live operation. Graphical browser and multi-process concurrent-export consistency are not certified by these bounded checks.
 
-The source's internal `FILE_MANIFEST.json` is self-contained. It excludes itself to avoid a circular digest; no external archive receipt or private preparation directory is required to use this repository.
+Root/vendor MIT licenses and provenance are retained. `FILE_MANIFEST.json` excludes itself to avoid a circular digest. Approval to publish this concrete candidate is still required.

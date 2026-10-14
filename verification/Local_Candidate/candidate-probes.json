@@ -1,0 +1,90 @@
+{
+  "older_request_error": "A newer reassessment request exists for this decision; review the latest request.",
+  "rejection_atomically_unchanged": true,
+  "latest_request_accepted": true,
+  "queue_before": [
+    {
+      "capture_id": "capture_time_corrected",
+      "changed_fields": [
+        "event_time"
+      ],
+      "conclusion": "Human review requested. No identity, lead validity, or recovery conclusion.",
+      "decision_basis_values": {
+        "event_time": "2026-10-01T06:40:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "decision_basis_version_id": "docv_5804afb73aacba5b7bf499004ebfe450",
+      "decision_id": "decision_d1",
+      "dependency_path": [
+        "obs_a45ee73f80dca880d65a8e03e927f0de",
+        "decision_d1"
+      ],
+      "id": "req_bd7eef536c58a67cf871d513949a217d",
+      "lead_id": "lead_bus",
+      "new_source_version_id": "docv_75ef35e89cb849accc54e2e5cc9c53f2",
+      "new_values": {
+        "event_time": "2026-10-01T07:40:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "old_source_version_id": "docv_5804afb73aacba5b7bf499004ebfe450",
+      "old_values": {
+        "event_time": "2026-10-01T06:40:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "original_disposition": "set_aside",
+      "original_rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+      "previous_capture_id": "capture_bus_1",
+      "reason": "Recorded input fields changed: event_time",
+      "recorded_at": "2026-10-13T00:00:00.000000Z",
+      "request_type": "human_reassessment",
+      "status": "superseded_request"
+    },
+    {
+      "capture_id": "capture_candidate_probe_newer",
+      "changed_fields": [
+        "event_time"
+      ],
+      "conclusion": "Human review requested. No identity, lead validity, or recovery conclusion.",
+      "decision_basis_values": {
+        "event_time": "2026-10-01T06:40:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "decision_basis_version_id": "docv_5804afb73aacba5b7bf499004ebfe450",
+      "decision_id": "decision_d1",
+      "dependency_path": [
+        "obs_a45ee73f80dca880d65a8e03e927f0de",
+        "decision_d1"
+      ],
+      "id": "req_a59f12be4a1ec3456dfab512b1c94a1b",
+      "lead_id": "lead_bus",
+      "new_source_version_id": "docv_2b7eeadeb359838185230d386c6f20f2",
+      "new_values": {
+        "event_time": "2026-10-01T08:00:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "old_source_version_id": "docv_75ef35e89cb849accc54e2e5cc9c53f2",
+      "old_values": {
+        "event_time": "2026-10-01T07:40:00Z",
+        "person_description": "possible match; identity unestablished",
+        "place": "bus_stop"
+      },
+      "original_disposition": "set_aside",
+      "original_rationale": "Set aside for a timing conflict: bus report 14:40 precedes the school report at 15:10. Reported times and identity remain unverified.",
+      "previous_capture_id": "capture_time_corrected",
+      "reason": "Recorded input fields changed: event_time",
+      "recorded_at": "2026-10-13T00:00:00.000000Z",
+      "request_type": "human_reassessment",
+      "status": "awaiting_human_review"
+    }
+  ],
+  "decision_rationale_tamper_integrity": {
+    "status": "pass",
+    "findings": [],
+    "boundary": "Internal integrity and deterministic structured extraction; not source truth or authenticated chain of custody."
+  }
+}

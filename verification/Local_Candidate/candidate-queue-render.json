@@ -1,0 +1,9 @@
+{
+  "pass": true,
+  "actual_page_script": true,
+  "request_count": 2,
+  "older_visible_status": "superseded request",
+  "newer_visible_status": "awaiting human review",
+  "latest_bus_time_visible": "16:00 (+08:00)",
+  "graphical_browser_verified": false
+}

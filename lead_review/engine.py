@@ -375,6 +375,13 @@ class Ledger:
             active = {d["id"] for d in self.active_decisions()}
             if request["decision_id"] not in active:
                 raise ReviewError("The requested decision has already been superseded; review its current successor.")
+            latest = self.db.execute(
+                "SELECT r.id FROM requests r JOIN captures c ON c.id=r.capture_id "
+                "WHERE r.decision_id=? ORDER BY c.seq DESC LIMIT 1",
+                (request["decision_id"],),
+            ).fetchone()
+            if latest["id"] != request_id:
+                raise ReviewError("A newer reassessment request exists for this decision; review the latest request.")
             current = self.node(request["decision_id"])
             decision = self.decision(new_decision_id, current["lead_id"], disposition, rationale, refs,
                                      reviewer_id=reviewer_id, supersedes=current["id"])
@@ -426,8 +433,12 @@ class Ledger:
         reviews = [json.loads(r[0]) for r in self.db.execute("SELECT payload FROM reviews ORDER BY seq")]
         reviewed = {r["request_id"] for r in reviews}
         active = {d["id"] for d in self.active_decisions()}
+        latest_requests = {r["decision_id"]: r["id"] for r in requests}
         for request in requests:
-            request["status"] = "reviewed" if request["id"] in reviewed else "superseded_decision" if request["decision_id"] not in active else "awaiting_human_review"
+            request["status"] = ("reviewed" if request["id"] in reviewed else
+                                 "superseded_decision" if request["decision_id"] not in active else
+                                 "superseded_request" if request["id"] != latest_requests[request["decision_id"]] else
+                                 "awaiting_human_review")
         return {"schema": SCHEMA, "synthetic_demonstration": True, "source_versions": versions,
                 "captures": [dict(r) for r in self.db.execute("SELECT * FROM captures ORDER BY seq")],
                 "nodes": nodes, "dependencies": self.edge_records(), "active_decisions": self.active_decisions(),

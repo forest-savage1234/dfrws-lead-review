@@ -1,0 +1,18 @@
+{
+  "kind": "Observed root verification of proposed local correction",
+  "published": false,
+  "working_directory": "work/final-review/tool-candidate",
+  "python_command": "python -m unittest discover -s tests -v",
+  "python_exit_code": 0,
+  "observed_console_tail": "Ran 21 tests in 4.831s\n\nOK",
+  "python_methods_passed": 21,
+  "original_methods": 14,
+  "new_latest_request_regressions": 7,
+  "loopback_http_methods_included": 2,
+  "network_permission_granted_by_tool_review": true,
+  "node_command": "node tests/test_frontend.mjs",
+  "node_exit_code": 0,
+  "node_observed_output": "PASS: page-script rendering, correction, review history, missing-link warning, literal source text. Graphical browser unavailable.",
+  "retention_scope": "Exact observed command/result summary and console tail; not a separately captured full per-test log.",
+  "graphical_browser_verified": false
+}

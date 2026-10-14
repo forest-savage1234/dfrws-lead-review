@@ -1,0 +1,8 @@
+{
+  "kind": "Observed targeted rerun after temporary-database cleanup",
+  "test": "tests.test_request_supersession.RequestSupersessionTests.test_concurrent_capture_commits_before_stale_review_check",
+  "tests": 1,
+  "exit_code": 0,
+  "observed_console_tail": "Ran 1 test in 0.174s\n\nOK",
+  "temporary_directory_override": "Writable workspace tmp directory used by the local verification harness. Test code uses standard tempfile.TemporaryDirectory."
+}

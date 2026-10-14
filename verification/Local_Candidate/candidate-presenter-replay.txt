@@ -1,0 +1,68 @@
+{
+  "fixture_sha256": "090d9b1b21503ef6dc778280d6a7dd500e3a10080b861111d735e65b74e0c69d",
+  "trace_sha256": "50022e345a7243697c7000cc14f611be706d409a18c2706933974a26caf689e2",
+  "observed": [
+    {
+      "case_id": "presenter_journey",
+      "events": [
+        {
+          "event": "time_corrected",
+          "new_request_decisions": [
+            "decision_d1"
+          ],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "human_reviewed",
+          "new_request_decisions": [],
+          "coverage": "complete_within_declared_records"
+        },
+        {
+          "event": "time_changed_again",
+          "new_request_decisions": [
+            "decision_d2"
+          ],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "original_decisions_preserved": true,
+      "integrity": "pass"
+    },
+    {
+      "case_id": "presenter_unrelated_source",
+      "events": [
+        {
+          "event": "weather_changed",
+          "new_request_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "original_decisions_preserved": true,
+      "integrity": "pass"
+    },
+    {
+      "case_id": "presenter_editorial_only",
+      "events": [
+        {
+          "event": "editor_changed",
+          "new_request_decisions": [],
+          "coverage": "complete_within_declared_records"
+        }
+      ],
+      "original_decisions_preserved": true,
+      "integrity": "pass"
+    },
+    {
+      "case_id": "presenter_missing_relationship",
+      "events": [
+        {
+          "event": "time_corrected",
+          "new_request_decisions": [],
+          "coverage": "incomplete"
+        }
+      ],
+      "original_decisions_preserved": true,
+      "integrity": "pass"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+test_concurrent_capture_commits_before_stale_review_check (tests.test_request_supersession.RequestSupersessionTests.test_concurrent_capture_commits_before_stale_review_check) ... ok
+test_editorial_capture_does_not_strand_pending_request (tests.test_request_supersession.RequestSupersessionTests.test_editorial_capture_does_not_strand_pending_request) ... ok
+test_equivalent_timestamp_and_identical_capture_remain_reviewable (tests.test_request_supersession.RequestSupersessionTests.test_equivalent_timestamp_and_identical_capture_remain_reviewable) ... ok
+test_latest_is_capture_sequence_not_user_timestamp (tests.test_request_supersession.RequestSupersessionTests.test_latest_is_capture_sequence_not_user_timestamp) ... ok
+test_newer_cross_source_request_supersedes_older_request (tests.test_request_supersession.RequestSupersessionTests.test_newer_cross_source_request_supersedes_older_request) ... ok
+test_older_request_rejected_atomically_and_latest_review_succeeds (tests.test_request_supersession.RequestSupersessionTests.test_older_request_rejected_atomically_and_latest_review_succeeds) ... ok
+test_request_for_another_decision_does_not_supersede_this_one (tests.test_request_supersession.RequestSupersessionTests.test_request_for_another_decision_does_not_supersede_this_one) ... ok
+test_correction_retains_bytes_and_original_decision (tests.test_engine.EngineTests.test_correction_retains_bytes_and_original_decision) ... ok
+test_replay_is_idempotent_and_collision_rolls_back (tests.test_engine.EngineTests.test_replay_is_idempotent_and_collision_rolls_back) ... ok
+test_failed_human_review_rolls_back_new_decision (tests.test_engine.EngineTests.test_failed_human_review_rolls_back_new_decision) ... ok
+test_human_review_appends_successor_and_blocks_stale_review (tests.test_engine.EngineTests.test_human_review_appends_successor_and_blocks_stale_review) ... ok
+test_reopen_and_export_are_deterministic (tests.test_engine.EngineTests.test_reopen_and_export_are_deterministic) ... ok
+test_integrity_detects_modified_source_even_if_trigger_is_bypassed (tests.test_engine.EngineTests.test_integrity_detects_modified_source_even_if_trigger_is_bypassed) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.035s
+
+OK

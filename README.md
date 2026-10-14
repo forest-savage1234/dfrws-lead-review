@@ -1,5 +1,7 @@
 # DFRWS fictional lead-review prototype
 
+**Verified latest-request correction, approved for publication 13 October 2026.** This correction starts from public commit `9987240f934ce00d55f5db8ae04cca4b2b769552` and adds a narrow latest-request gate. If a newer reassessment request targets the same active decision, the older request remains retained but cannot receive a human outcome. See `CANDIDATE_REVIEW.md` for the policy, checks and remaining limits.
+
 This standalone prototype records which information an investigative decision used. When a mapped observation changes, it follows registered relationships and asks a person to reconsider an affected decision. The request shows the changed values, earlier reason and an available dependency path. Old decisions and source versions remain available.
 
 All supplied records are fictional. The code does not identify a child, establish source truth, automatically choose a disposition, or demonstrate recovery benefit. It is separate from CaseLinker and the earlier 24-scenario snapshot study.
@@ -42,7 +44,7 @@ py -3 -m unittest discover -s tests -v
 node tests/test_frontend.mjs
 ```
 
-The unittest suite contains 14 original methods, including two actual loopback HTTP workflow tests. A later combined run passed all 14 on byte-identical runtime/test/web/fixture files; `verification/Runtime_Source_Correlation.json` records all 18 shared files and their digests. The Node command checks the actual page script in a limited DOM stand-in. It is optional for Python engine use and does not establish graphical browser compatibility.
+The proposed candidate contains **21 Python test methods**: 14 original methods, including two actual loopback HTTP workflow tests, plus seven latest-request regressions. A local combined candidate run passed all 21 and the Node harness. The race regression also passed after changing its temporary database cleanup. Candidate receipts are in `verification/Local_Candidate/`. `verification/Runtime_Source_Correlation.json` preserves evidence for the earlier published source and does not certify the changed candidate engine. The Node command checks the actual page script in a limited DOM stand-in. It is optional for Python engine use and does not establish graphical browser compatibility.
 
 GitHub Actions runs those checks plus a byte comparison of freshly replayed presenter output and its rebuilt viewer. It installs no project packages. `FILE_MANIFEST.json` records the selected source bytes, excluding the manifest itself.
 
@@ -58,7 +60,7 @@ The unchanged corpus has **16 builder-authored cases, 20 scored events and 14 re
 
 All ten required requests with complete declared dependencies were generated. Four required requests had incomplete records: two requests were generated despite uncertain/removed time fields; two were missed because relationships were absent. Both misses remain part of the results.
 
-`fixtures/inputs.json`, `fixtures/expected.json` and `results/` preserve original benchmark records. Fresh results are separately in `verification/fresh_evaluation/`. Expected labels are read after engine output is captured. The same builder authored inputs and judgments with AI assistance; file separation does not make the evaluation independent. Simplified policies compare software behavior, not products or investigator performance.
+`fixtures/inputs.json`, `fixtures/expected.json` and `results/` preserve original benchmark records. Earlier fresh results remain in `verification/fresh_evaluation/`; the proposed candidate's fresh results are in `verification/Local_Candidate/evaluation/`. Candidate metrics are unchanged. Its captured output differs only in the existing `reversion` case: the older request now has derived status `superseded_request`. Expected labels are read after engine output is captured. The same builder authored inputs and judgments with AI assistance; file separation does not make the evaluation independent. Simplified policies compare software behavior, not products or investigator performance.
 
 The saved abstract describes an **earlier 24-scenario snapshot implementation**, reporting 19 of 20 required reviews across 19 valid scenarios. That is a different implementation/corpus and is not distributed or reproduced here. Its counts are not pooled with this ledger or the separate presenter demonstration.
 
@@ -68,7 +70,9 @@ The engine accepts bounded structured JSON, explicit observation-field mappings 
 
 Capture processing follows ledger insertion order. SQLite triggers block ordinary updates/deletes, but control of the database file can bypass application protections. Digests and retained history establish neither source truth nor authenticated investigative custody.
 
-A reviewed request or request for an already superseded decision is rejected. **Source freshness is not enforced:** an older still-open request can be accepted after a newer source capture while its decision remains active. A person must inspect the relevant source versions. `verification/Supplemental_Release_Checks.json` records this observed limit. No general source-staleness rejection is claimed.
+A reviewed request or request for an already superseded decision is rejected. In this proposed candidate, a pending request is also rejected if a later ledger capture produced another request for that same active decision; the queue displays it as `superseded_request`. This includes requests from different sources. Later editorial, identical or equivalent captures that produce no new request leave the existing request reviewable. This is **latest-request enforcement, not source-freshness certification**. A person must inspect relevant source versions and references. `verification/Supplemental_Release_Checks.json` preserves the older published behavior and is historical evidence, not a claim about the proposed gate.
+
+The integrity check covers foreign keys, retained source digests/version identifiers, evidence anchors and structured observation replay. It does not independently authenticate decision rationale, request or review payload history. A temporary-database experiment altered a decision rationale after disabling its update trigger and still received `pass`; candidate evidence records that scope limit. An export digest identifies exported bytes without proving external authenticity.
 
 No independent practitioner evaluation, operational deployment, comparative superiority, child-recovery benefit or validated CASE/UCO conformance is established. Graphical browser and venue checks remain separate from software tests.
 
