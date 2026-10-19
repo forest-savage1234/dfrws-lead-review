@@ -1,10 +1,14 @@
-# DFRWS fictional lead-review prototype
+# Decision Review Ledger
 
-**Verified latest-request correction, approved for publication 13 October 2026.** This correction starts from public commit `9987240f934ce00d55f5db8ae04cca4b2b769552` and adds a narrow latest-request gate. If a newer reassessment request targets the same active decision, the older request remains retained but cannot receive a human outcome. See `CANDIDATE_REVIEW.md` for the policy, checks and remaining limits.
+A Python prototype that records the evidence behind an investigative decision and requests human review when a mapped observation changes. Each request shows the changed values, the earlier reason, and a declared dependency path. Earlier decisions and source versions remain available.
 
-This standalone prototype records which information an investigative decision used. When a mapped observation changes, it follows registered relationships and asks a person to reconsider an affected decision. The request shows the changed values, earlier reason and an available dependency path. Old decisions and source versions remain available.
+[Recorded example](#view-the-recorded-example) · [Run locally](#run-the-engine) · [Evaluation](#original-controlled-ledger-evaluation) · [Limits](#practical-limits)
 
-All supplied records are fictional. The code does not identify a child, establish source truth, automatically choose a disposition, or demonstrate recovery benefit. It is separate from CaseLinker and the earlier 24-scenario snapshot study.
+**Work by Forest Savage:** the standalone ledger, controlled evaluation, and replay and viewer scripts. Reused CaseLinker models and their original licenses are documented under [Attribution and licenses](#attribution-and-licenses).
+
+**Status:** Research prototype using fictional records and a builder-authored evaluation. It does not establish source truth, choose investigative outcomes, or demonstrate operational benefit. The ledger is separate from CaseLinker and the earlier 24-scenario snapshot study.
+
+The repository includes a recorded example that opens in a browser, a locally executable engine, and a controlled evaluation that retains both successful requests and missed dependencies.
 
 ## View the recorded example
 
@@ -75,6 +79,10 @@ A reviewed request or request for an already superseded decision is rejected. In
 The integrity check covers foreign keys, retained source digests/version identifiers, evidence anchors and structured observation replay. It does not independently authenticate decision rationale, request or review payload history. A temporary-database experiment altered a decision rationale after disabling its update trigger and still received `pass`; candidate evidence records that scope limit. An export digest identifies exported bytes without proving external authenticity.
 
 No independent practitioner evaluation, operational deployment, comparative superiority, child-recovery benefit or validated CASE/UCO conformance is established. Graphical browser and venue checks remain separate from software tests.
+
+## Latest-request correction
+
+The latest-request correction starts from public commit `9987240f934ce00d55f5db8ae04cca4b2b769552` and adds a narrow latest-request gate. If a newer reassessment request targets the same active decision, the older request remains retained but cannot receive a human outcome. See [the candidate review](CANDIDATE_REVIEW.md) for the policy, checks and remaining limits.
 
 ## Attribution and licenses
 
